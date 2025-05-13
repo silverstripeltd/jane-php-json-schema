@@ -645,11 +645,11 @@ class JsonSchemaNormalizer implements DenormalizerInterface, NormalizerInterface
     {
         $dataArray = [];
         if ($data->isInitialized('definitions') && null !== $data->getDefinitions()) {
-            $values = [];
+            $values = new \ArrayObject([], \ArrayObject::ARRAY_AS_PROPS);
             foreach ($data->getDefinitions() as $key => $value) {
                 $value_1 = $value;
                 if (is_object($value)) {
-                    $value_1 = $this->normalizer->normalize($value, 'json', $context);
+                    $value_1 = $value == null ? null : new \ArrayObject($this->normalizer->normalize($value, 'json', $context), \ArrayObject::ARRAY_AS_PROPS);
                 } elseif (is_bool($value)) {
                     $value_1 = $value;
                 }
@@ -661,11 +661,11 @@ class JsonSchemaNormalizer implements DenormalizerInterface, NormalizerInterface
             $dataArray['definitions'] = null;
         }
         if ($data->isInitialized('dependencies') && null !== $data->getDependencies()) {
-            $values_1 = [];
+            $values_1 = new \ArrayObject([], \ArrayObject::ARRAY_AS_PROPS);
             foreach ($data->getDependencies() as $key_1 => $value_2) {
                 $value_3 = $value_2;
                 if (is_object($value_2)) {
-                    $value_3 = $this->normalizer->normalize($value_2, 'json', $context);
+                    $value_3 = $value_2 == null ? null : new \ArrayObject($this->normalizer->normalize($value_2, 'json', $context), \ArrayObject::ARRAY_AS_PROPS);
                 } elseif (is_bool($value_2)) {
                     $value_3 = $value_2;
                 } elseif (is_array($value_2)) {
@@ -685,7 +685,7 @@ class JsonSchemaNormalizer implements DenormalizerInterface, NormalizerInterface
         if ($data->isInitialized('additionalItems') && null !== $data->getAdditionalItems()) {
             $value_5 = $data->getAdditionalItems();
             if (is_object($data->getAdditionalItems())) {
-                $value_5 = $this->normalizer->normalize($data->getAdditionalItems(), 'json', $context);
+                $value_5 = $data->getAdditionalItems() == null ? null : new \ArrayObject($this->normalizer->normalize($data->getAdditionalItems(), 'json', $context), \ArrayObject::ARRAY_AS_PROPS);
             } elseif (is_bool($data->getAdditionalItems())) {
                 $value_5 = $data->getAdditionalItems();
             }
@@ -697,7 +697,7 @@ class JsonSchemaNormalizer implements DenormalizerInterface, NormalizerInterface
         if ($data->isInitialized('unevaluatedItems') && null !== $data->getUnevaluatedItems()) {
             $value_6 = $data->getUnevaluatedItems();
             if (is_object($data->getUnevaluatedItems())) {
-                $value_6 = $this->normalizer->normalize($data->getUnevaluatedItems(), 'json', $context);
+                $value_6 = $data->getUnevaluatedItems() == null ? null : new \ArrayObject($this->normalizer->normalize($data->getUnevaluatedItems(), 'json', $context), \ArrayObject::ARRAY_AS_PROPS);
             } elseif (is_bool($data->getUnevaluatedItems())) {
                 $value_6 = $data->getUnevaluatedItems();
             }
@@ -709,7 +709,7 @@ class JsonSchemaNormalizer implements DenormalizerInterface, NormalizerInterface
         if ($data->isInitialized('items') && null !== $data->getItems()) {
             $value_7 = $data->getItems();
             if (is_object($data->getItems())) {
-                $value_7 = $this->normalizer->normalize($data->getItems(), 'json', $context);
+                $value_7 = $data->getItems() == null ? null : new \ArrayObject($this->normalizer->normalize($data->getItems(), 'json', $context), \ArrayObject::ARRAY_AS_PROPS);
             } elseif (is_bool($data->getItems())) {
                 $value_7 = $data->getItems();
             } elseif (is_array($data->getItems())) {
@@ -717,7 +717,7 @@ class JsonSchemaNormalizer implements DenormalizerInterface, NormalizerInterface
                 foreach ($data->getItems() as $value_8) {
                     $value_9 = $value_8;
                     if (is_object($value_8)) {
-                        $value_9 = $this->normalizer->normalize($value_8, 'json', $context);
+                        $value_9 = $value_8 == null ? null : new \ArrayObject($this->normalizer->normalize($value_8, 'json', $context), \ArrayObject::ARRAY_AS_PROPS);
                     } elseif (is_bool($value_8)) {
                         $value_9 = $value_8;
                     }
@@ -733,7 +733,7 @@ class JsonSchemaNormalizer implements DenormalizerInterface, NormalizerInterface
         if ($data->isInitialized('contains') && null !== $data->getContains()) {
             $value_10 = $data->getContains();
             if (is_object($data->getContains())) {
-                $value_10 = $this->normalizer->normalize($data->getContains(), 'json', $context);
+                $value_10 = $data->getContains() == null ? null : new \ArrayObject($this->normalizer->normalize($data->getContains(), 'json', $context), \ArrayObject::ARRAY_AS_PROPS);
             } elseif (is_bool($data->getContains())) {
                 $value_10 = $data->getContains();
             }
@@ -745,7 +745,7 @@ class JsonSchemaNormalizer implements DenormalizerInterface, NormalizerInterface
         if ($data->isInitialized('additionalProperties') && null !== $data->getAdditionalProperties()) {
             $value_11 = $data->getAdditionalProperties();
             if (is_object($data->getAdditionalProperties())) {
-                $value_11 = $this->normalizer->normalize($data->getAdditionalProperties(), 'json', $context);
+                $value_11 = $data->getAdditionalProperties() == null ? null : new \ArrayObject($this->normalizer->normalize($data->getAdditionalProperties(), 'json', $context), \ArrayObject::ARRAY_AS_PROPS);
             } elseif (is_bool($data->getAdditionalProperties())) {
                 $value_11 = $data->getAdditionalProperties();
             }
@@ -755,11 +755,11 @@ class JsonSchemaNormalizer implements DenormalizerInterface, NormalizerInterface
             $dataArray['additionalProperties'] = null;
         }
         if ($data->isInitialized('unevaluatedProperties') && null !== $data->getUnevaluatedProperties()) {
-            $values_4 = [];
+            $values_4 = new \ArrayObject([], \ArrayObject::ARRAY_AS_PROPS);
             foreach ($data->getUnevaluatedProperties() as $key_2 => $value_12) {
                 $value_13 = $value_12;
                 if (is_object($value_12)) {
-                    $value_13 = $this->normalizer->normalize($value_12, 'json', $context);
+                    $value_13 = $value_12 == null ? null : new \ArrayObject($this->normalizer->normalize($value_12, 'json', $context), \ArrayObject::ARRAY_AS_PROPS);
                 } elseif (is_bool($value_12)) {
                     $value_13 = $value_12;
                 }
@@ -771,11 +771,11 @@ class JsonSchemaNormalizer implements DenormalizerInterface, NormalizerInterface
             $dataArray['unevaluatedProperties'] = null;
         }
         if ($data->isInitialized('properties') && null !== $data->getProperties()) {
-            $values_5 = [];
+            $values_5 = new \ArrayObject([], \ArrayObject::ARRAY_AS_PROPS);
             foreach ($data->getProperties() as $key_3 => $value_14) {
                 $value_15 = $value_14;
                 if (is_object($value_14)) {
-                    $value_15 = $this->normalizer->normalize($value_14, 'json', $context);
+                    $value_15 = $value_14 == null ? null : new \ArrayObject($this->normalizer->normalize($value_14, 'json', $context), \ArrayObject::ARRAY_AS_PROPS);
                 } elseif (is_bool($value_14)) {
                     $value_15 = $value_14;
                 }
@@ -787,11 +787,11 @@ class JsonSchemaNormalizer implements DenormalizerInterface, NormalizerInterface
             $dataArray['properties'] = null;
         }
         if ($data->isInitialized('patternProperties') && null !== $data->getPatternProperties()) {
-            $values_6 = [];
+            $values_6 = new \ArrayObject([], \ArrayObject::ARRAY_AS_PROPS);
             foreach ($data->getPatternProperties() as $key_4 => $value_16) {
                 $value_17 = $value_16;
                 if (is_object($value_16)) {
-                    $value_17 = $this->normalizer->normalize($value_16, 'json', $context);
+                    $value_17 = $value_16 == null ? null : new \ArrayObject($this->normalizer->normalize($value_16, 'json', $context), \ArrayObject::ARRAY_AS_PROPS);
                 } elseif (is_bool($value_16)) {
                     $value_17 = $value_16;
                 }
@@ -803,11 +803,11 @@ class JsonSchemaNormalizer implements DenormalizerInterface, NormalizerInterface
             $dataArray['patternProperties'] = null;
         }
         if ($data->isInitialized('dependentSchemas') && null !== $data->getDependentSchemas()) {
-            $values_7 = [];
+            $values_7 = new \ArrayObject([], \ArrayObject::ARRAY_AS_PROPS);
             foreach ($data->getDependentSchemas() as $key_5 => $value_18) {
                 $value_19 = $value_18;
                 if (is_object($value_18)) {
-                    $value_19 = $this->normalizer->normalize($value_18, 'json', $context);
+                    $value_19 = $value_18 == null ? null : new \ArrayObject($this->normalizer->normalize($value_18, 'json', $context), \ArrayObject::ARRAY_AS_PROPS);
                 } elseif (is_bool($value_18)) {
                     $value_19 = $value_18;
                 }
@@ -821,7 +821,7 @@ class JsonSchemaNormalizer implements DenormalizerInterface, NormalizerInterface
         if ($data->isInitialized('propertyNames') && null !== $data->getPropertyNames()) {
             $value_20 = $data->getPropertyNames();
             if (is_object($data->getPropertyNames())) {
-                $value_20 = $this->normalizer->normalize($data->getPropertyNames(), 'json', $context);
+                $value_20 = $data->getPropertyNames() == null ? null : new \ArrayObject($this->normalizer->normalize($data->getPropertyNames(), 'json', $context), \ArrayObject::ARRAY_AS_PROPS);
             } elseif (is_bool($data->getPropertyNames())) {
                 $value_20 = $data->getPropertyNames();
             }
@@ -833,7 +833,7 @@ class JsonSchemaNormalizer implements DenormalizerInterface, NormalizerInterface
         if ($data->isInitialized('if') && null !== $data->getIf()) {
             $value_21 = $data->getIf();
             if (is_object($data->getIf())) {
-                $value_21 = $this->normalizer->normalize($data->getIf(), 'json', $context);
+                $value_21 = $data->getIf() == null ? null : new \ArrayObject($this->normalizer->normalize($data->getIf(), 'json', $context), \ArrayObject::ARRAY_AS_PROPS);
             } elseif (is_bool($data->getIf())) {
                 $value_21 = $data->getIf();
             }
@@ -845,7 +845,7 @@ class JsonSchemaNormalizer implements DenormalizerInterface, NormalizerInterface
         if ($data->isInitialized('then') && null !== $data->getThen()) {
             $value_22 = $data->getThen();
             if (is_object($data->getThen())) {
-                $value_22 = $this->normalizer->normalize($data->getThen(), 'json', $context);
+                $value_22 = $data->getThen() == null ? null : new \ArrayObject($this->normalizer->normalize($data->getThen(), 'json', $context), \ArrayObject::ARRAY_AS_PROPS);
             } elseif (is_bool($data->getThen())) {
                 $value_22 = $data->getThen();
             }
@@ -857,7 +857,7 @@ class JsonSchemaNormalizer implements DenormalizerInterface, NormalizerInterface
         if ($data->isInitialized('else') && null !== $data->getElse()) {
             $value_23 = $data->getElse();
             if (is_object($data->getElse())) {
-                $value_23 = $this->normalizer->normalize($data->getElse(), 'json', $context);
+                $value_23 = $data->getElse() == null ? null : new \ArrayObject($this->normalizer->normalize($data->getElse(), 'json', $context), \ArrayObject::ARRAY_AS_PROPS);
             } elseif (is_bool($data->getElse())) {
                 $value_23 = $data->getElse();
             }
@@ -871,7 +871,7 @@ class JsonSchemaNormalizer implements DenormalizerInterface, NormalizerInterface
             foreach ($data->getAllOf() as $value_24) {
                 $value_25 = $value_24;
                 if (is_object($value_24)) {
-                    $value_25 = $this->normalizer->normalize($value_24, 'json', $context);
+                    $value_25 = $value_24 == null ? null : new \ArrayObject($this->normalizer->normalize($value_24, 'json', $context), \ArrayObject::ARRAY_AS_PROPS);
                 } elseif (is_bool($value_24)) {
                     $value_25 = $value_24;
                 }
@@ -887,7 +887,7 @@ class JsonSchemaNormalizer implements DenormalizerInterface, NormalizerInterface
             foreach ($data->getAnyOf() as $value_26) {
                 $value_27 = $value_26;
                 if (is_object($value_26)) {
-                    $value_27 = $this->normalizer->normalize($value_26, 'json', $context);
+                    $value_27 = $value_26 == null ? null : new \ArrayObject($this->normalizer->normalize($value_26, 'json', $context), \ArrayObject::ARRAY_AS_PROPS);
                 } elseif (is_bool($value_26)) {
                     $value_27 = $value_26;
                 }
@@ -903,7 +903,7 @@ class JsonSchemaNormalizer implements DenormalizerInterface, NormalizerInterface
             foreach ($data->getOneOf() as $value_28) {
                 $value_29 = $value_28;
                 if (is_object($value_28)) {
-                    $value_29 = $this->normalizer->normalize($value_28, 'json', $context);
+                    $value_29 = $value_28 == null ? null : new \ArrayObject($this->normalizer->normalize($value_28, 'json', $context), \ArrayObject::ARRAY_AS_PROPS);
                 } elseif (is_bool($value_28)) {
                     $value_29 = $value_28;
                 }
@@ -917,7 +917,7 @@ class JsonSchemaNormalizer implements DenormalizerInterface, NormalizerInterface
         if ($data->isInitialized('not') && null !== $data->getNot()) {
             $value_30 = $data->getNot();
             if (is_object($data->getNot())) {
-                $value_30 = $this->normalizer->normalize($data->getNot(), 'json', $context);
+                $value_30 = $data->getNot() == null ? null : new \ArrayObject($this->normalizer->normalize($data->getNot(), 'json', $context), \ArrayObject::ARRAY_AS_PROPS);
             } elseif (is_bool($data->getNot())) {
                 $value_30 = $data->getNot();
             }
@@ -941,7 +941,7 @@ class JsonSchemaNormalizer implements DenormalizerInterface, NormalizerInterface
         if ($data->isInitialized('contentSchema') && null !== $data->getContentSchema()) {
             $value_31 = $data->getContentSchema();
             if (is_object($data->getContentSchema())) {
-                $value_31 = $this->normalizer->normalize($data->getContentSchema(), 'json', $context);
+                $value_31 = $data->getContentSchema() == null ? null : new \ArrayObject($this->normalizer->normalize($data->getContentSchema(), 'json', $context), \ArrayObject::ARRAY_AS_PROPS);
             } elseif (is_bool($data->getContentSchema())) {
                 $value_31 = $data->getContentSchema();
             }
@@ -987,7 +987,7 @@ class JsonSchemaNormalizer implements DenormalizerInterface, NormalizerInterface
             $dataArray['$recursiveAnchor'] = null;
         }
         if ($data->isInitialized('dollarVocabulary') && null !== $data->getDollarVocabulary()) {
-            $values_11 = [];
+            $values_11 = new \ArrayObject([], \ArrayObject::ARRAY_AS_PROPS);
             foreach ($data->getDollarVocabulary() as $key_6 => $value_32) {
                 $values_11[$key_6] = $value_32;
             }
@@ -1003,11 +1003,11 @@ class JsonSchemaNormalizer implements DenormalizerInterface, NormalizerInterface
             $dataArray['$comment'] = null;
         }
         if ($data->isInitialized('dollarDefs') && null !== $data->getDollarDefs()) {
-            $values_12 = [];
+            $values_12 = new \ArrayObject([], \ArrayObject::ARRAY_AS_PROPS);
             foreach ($data->getDollarDefs() as $key_7 => $value_33) {
                 $value_34 = $value_33;
                 if (is_object($value_33)) {
-                    $value_34 = $this->normalizer->normalize($value_33, 'json', $context);
+                    $value_34 = $value_33 == null ? null : new \ArrayObject($this->normalizer->normalize($value_33, 'json', $context), \ArrayObject::ARRAY_AS_PROPS);
                 } elseif (is_bool($value_33)) {
                     $value_34 = $value_33;
                 }
@@ -1171,7 +1171,7 @@ class JsonSchemaNormalizer implements DenormalizerInterface, NormalizerInterface
             $dataArray['required'] = null;
         }
         if ($data->isInitialized('dependentRequired') && null !== $data->getDependentRequired()) {
-            $values_15 = [];
+            $values_15 = new \ArrayObject([], \ArrayObject::ARRAY_AS_PROPS);
             foreach ($data->getDependentRequired() as $key_8 => $value_37) {
                 $values_16 = [];
                 foreach ($value_37 as $value_38) {
